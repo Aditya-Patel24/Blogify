@@ -12,6 +12,7 @@ import PostForm from "../components/post-form/PostForm";
 import PostCard from "./PostCard";
 import AuthLayout from "./AuthLayout";
 import Input from "./Input";
+
 export {
     Header,
     Footer,
@@ -24,7 +25,7 @@ export {
     Button,
     PostForm,
     PostCard,
-    AuthLayout, 
+    AuthLayout,
     Input,
     Select,
 }

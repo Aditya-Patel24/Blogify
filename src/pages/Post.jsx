@@ -5,6 +5,7 @@ import { Button, Container } from "../components";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
 import { Query } from "appwrite";
+import spinner from '../assets/spinner1.gif';
 
 export default function Post() {
     const [post, setPost] = useState(null);
@@ -36,7 +37,7 @@ export default function Post() {
                 navigate("/");
             }
         };
-    
+
         fetchPost();
     }, [slug, navigate]);
 
@@ -63,12 +64,20 @@ export default function Post() {
         console.error("Failed to load image:", e);
     };
 
-    return loading ? (
-        <div className="py-8 text-center">Loading...</div>
-    ) : post ? (
+    if (loading) {
+        return (   <div className='flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900'>
+            <img src={spinner} alt="Loading..." className="w-64 h-64" />
+            </div>)
+    }
+
+    if (!post) {
+        return <div className="py-8 text-center">Post not found</div>;
+    }
+
+    return (
         <div className="py-8">
             <Container>
-                <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
+                <div className="relative w-full flex justify-center mb-4 border rounded-xl p-4">
                     {post.feturedImage ? (
                         <img
                             src={appwriteService.getFilePreview(post.feturedImage)}
@@ -83,15 +92,14 @@ export default function Post() {
                             className="rounded-xl max-w-full h-auto"
                         />
                     )}
-
                     {isAuthor && (
                         <div className="absolute right-6 top-6">
                             <Link to={`/edit-post/${post.$id}`}>
-                                <Button bgColor="bg-green-500" className="mr-3">
+                                <Button bgColor="bg-[#5ce1e6]" className="mr-3">
                                     Edit
                                 </Button>
                             </Link>
-                            <Button bgColor="bg-red-500" onClick={deletePost}>
+                            <Button bgColor="bg-[#fd8320]" onClick={deletePost}>
                                 Delete
                             </Button>
                         </div>
@@ -105,7 +113,5 @@ export default function Post() {
                 </div>
             </Container>
         </div>
-    ) : (
-        <div className="py-8 text-center">Post not found</div>
     );
 }
