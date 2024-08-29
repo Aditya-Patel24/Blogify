@@ -1,6 +1,5 @@
 # React + Vite
-## Visit My website
--https://blogify-aditya.vercel.app/
+## Visit My website  https://blogify-aditya.vercel.app/
 ![Blogify](/src/assets/spinner.gif)
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
