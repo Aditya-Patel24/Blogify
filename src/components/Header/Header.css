@@ -49,4 +49,31 @@
   header {
     height: 60px; /* This should match the logo container height */
   }
-  
+  /* Header.css */
+@media (min-width: 768px) {
+  .md\\:hidden {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .md\\:flex {
+    display: none;
+  }
+}
+/* Header.css */
+.bg-white {
+  background-color: white; /* Adjust this to your preferred color */
+}
+
+.p-4 {
+  padding: 1rem; /* Add padding to the menu */
+}
+
+.shadow-lg {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.rounded {
+  border-radius: 0.375rem; /* Rounded corners */
+}
