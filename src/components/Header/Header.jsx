@@ -74,8 +74,7 @@ function Header() {
               navigate(item.slug);
               setIsMenuOpen(false); // Close the menu after navigation
             }}
-            className='px-6 py-2 text-gray-700 hover:bg-blue-100 rounded-full transition duration-200'
-          >
+            className='px-6 py-2 text-gray-700 hover:bg-blue-100 rounded-full transition duration-200'>
             {item.name}
           </button>
         </li>
@@ -91,7 +90,6 @@ function Header() {
     </li>
   </ul>
 )}
-
         </nav>
       </Container>
     </header>
